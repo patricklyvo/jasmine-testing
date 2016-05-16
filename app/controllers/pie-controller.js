@@ -1,7 +1,8 @@
 angular.module('pie', [])
   .controller('PieController', [
     '$scope',
-    function($scope) {
+    'DessertManager',
+    function($scope, dessertManager) {
 
       // listeners
       $scope.$on('pieHasBeenDepleted', function() {
@@ -35,6 +36,14 @@ angular.module('pie', [])
       $scope.eatSlice = function () {
         if ($scope.slices) {
           $scope.slices--;
+        }
+      };
+
+      $scope.toggleMode = function() {
+        if (dessertManager.mode() === 'pie') {
+          dessertManager.mode("cake");
+        } else {
+          dessertManager.mode("pie");
         }
       };
 

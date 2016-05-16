@@ -16,6 +16,9 @@ angular.module('desserts')
           return DessertValues.pies.map(function(pie) {
             return pie.flavor;
           });
+        },
+        mode: function(mode) {
+          return mode;
         }
       };
     }
